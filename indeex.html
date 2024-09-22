@@ -99,10 +99,10 @@
                 confirmButton.innerText = "Onayla";
                 confirmButton.disabled = false;
             } else if (language === 'nan') {
-                title.innerText = "Select Your Language"; // Reset title
+                title.innerText = "Select Your Language";
                 messageDiv.innerText = "";
                 confirmButton.innerText = "";
-                confirmButton.disabled = true; // Disable the button for "nan"
+                confirmButton.disabled = true;
             }
         }
 
@@ -111,11 +111,11 @@
             let url = '';
 
             if (language === 'english') {
-                url = 'iiiindex.html'; // Change this to your English page
+                url = 'iiiindex.html';
             } else if (language === 'spanish') {
-                url = 'iiinndex.html'; // Change this to your Spanish page
+                url = 'iiinndex.html';
             } else if (language === 'turkish') {
-                url = 'index.html'; // Change this to your Turkish page
+                url = 'iindex.html';
             } else {
                 alert("Please select a language.");
                 return;
