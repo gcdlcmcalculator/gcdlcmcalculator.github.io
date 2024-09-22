@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Selector</title>
+    <style>
+        body {
+            font-family: "Chakra Petch", sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: inset 0 0 10px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+        }
+        h1 {
+            color: #000;
+            margin-bottom: 20px;
+        }
+        select {
+            border-radius: 10px;
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 15px;
+            box-shadow: inset 0 0 5px 0.8px rgba(0,0,0,0.75);
+        }
+        #message {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #333;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: inset 0 0 15px 5px rgba(0,0,0,0.75);
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 id="title">Select Your Language</h1>
+        <select id="language" onchange="showMessage()">
+            <option value="nan">-</option>
+            <option value="english">English</option>
+            <option value="spanish">Spanish</option>
+            <option value="turkish">Turkish</option>
+        </select>
+
+        <div id="message"></div>
+        <br>
+        <button id="confirmButton" onclick="redirect()" disabled>       </button>
+    </div>
+
+    <script>
+        function showMessage() {
+            const language = document.getElementById('language').value;
+            const messageDiv = document.getElementById('message');
+            const confirmButton = document.getElementById('confirmButton');
+            const title = document.getElementById('title');
+
+            if (language === 'english') {
+                title.innerText = "Select Your Language";
+                messageDiv.innerText = "You selected English!";
+                confirmButton.innerText = "Confirm";
+                confirmButton.disabled = false;
+            } else if (language === 'spanish') {
+                title.innerText = "Selecciona tu idioma";
+                messageDiv.innerText = "¡Has seleccionado español!";
+                confirmButton.innerText = "Confirmar";
+                confirmButton.disabled = false;
+            } else if (language === 'turkish') {
+                title.innerText = "Dilinizi Seçin";
+                messageDiv.innerText = "Türkçe'yi seçtiniz!";
+                confirmButton.innerText = "Onayla";
+                confirmButton.disabled = false;
+            } else if (language === 'nan') {
+                title.innerText = "Select Your Language"; // Reset title
+                messageDiv.innerText = "";
+                confirmButton.innerText = "";
+                confirmButton.disabled = true; // Disable the button for "nan"
+            }
+        }
+
+        function redirect() {
+            const language = document.getElementById('language').value;
+            let url = '';
+
+            if (language === 'english') {
+                url = 'iiiindex.html'; // Change this to your English page
+            } else if (language === 'spanish') {
+                url = 'iiinndex.html'; // Change this to your Spanish page
+            } else if (language === 'turkish') {
+                url = 'index.html'; // Change this to your Turkish page
+            } else {
+                alert("Please select a language.");
+                return;
+            }
+
+            window.location.href = url;
+        }
+    </script>
+
+</body>
+</html>
